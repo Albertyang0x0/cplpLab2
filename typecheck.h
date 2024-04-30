@@ -5,6 +5,6 @@
 #include "type.h"
 #include "typetbl.h"
 
-void semantic_checktype(ParserState* pstate, Cst* program);
+void checktype(ParserState* pstate, Cst* program);
 
 #endif

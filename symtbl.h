@@ -45,6 +45,5 @@ void symtbl_delete(SymTbl* symtbl);
 
 Symbol* symtbl_insert(SymTbl* symtbl, StringId name);//插入符号
 Symbol* symtbl_search(SymTbl* symtbl, StringId name);//查询符号
-static inline size_t symtbl_size(SymTbl* symtbl);
 
 #endif

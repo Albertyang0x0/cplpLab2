@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
   pstate_init(parser_state);
   yyparse();
   if (parser_state->nerror == 0) {
-    semantic_checktype(parser_state, parser_state->program);
+    checktype(parser_state, parser_state->program);
   }
   pstate_destroy(parser_state);
   fclose(input);

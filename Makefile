@@ -4,10 +4,10 @@ LEX = flex
 YACC = bison
 LIBS = -lfl -ly
 
-parser : mycc.o cst.o parser_state.o strtbl.o cmmlex.o cmm.tab.o semantic.o symtbl.o typetbl.o array.o
+parser : mycc.o cst.o parser_state.o strtbl.o cmmlex.o cmm.tab.o typecheck.o symtbl.o typetbl.o array.o
 	$(CC) -o $@ $^ $(LIBS) $(CFLAGS)
 
-mycc.o : mycc.c mycc.h parser_state.h utils.h strtbl.h cst.h cmm.tab.h type.h typetbl.h symtbl.h semantic.h
+mycc.o : mycc.c mycc.h parser_state.h utils.h strtbl.h cst.h cmm.tab.h type.h typetbl.h symtbl.h typecheck.h
 	$(CC) -c $< $(CFLAGS)
 
 cst.o : cst.c cst.h utils.h
@@ -28,7 +28,7 @@ cmmlex.c : cmm.l mycc.h parser_state.h utils.h strtbl.h cst.h cmm.tab.h
 cmm.tab.o : cmm.tab.c cmm.tab.h
 	$(CC) -c $< $(CFLAGS)
 
-semantic.o : semantic.c semantic.h parser_state.h cst.h strtbl.h symtbl.h utils.h array.h
+typecheck.o : typecheck.c typecheck.h parser_state.h cst.h strtbl.h symtbl.h utils.h array.h
 	$(CC) -c $< $(CFLAGS)
 
 symtbl.o : symtbl.c symtbl.h typetbl.h type.h strtbl.h
